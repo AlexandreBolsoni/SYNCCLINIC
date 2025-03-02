@@ -1,0 +1,103 @@
+	body{
+		background:#F8F8F8;
+	}
+	li{
+		list-style: none;
+		color: #F8F8F8;
+	}
+	a:hover{
+		text-decoration: none;
+		color:#000;
+	}
+	img{
+		width: 15%;
+		height: auto;
+	}
+	/* Estilização da seção "Sobre Nós" */
+	section {
+		margin: 0 auto;
+		text-align: center;
+		
+	}
+	.sobre-nos {
+		background: linear-gradient(to right, #007bff, #6610f2); /* Degradê azul para roxo */
+		color: white;
+		text-align: center;
+		padding: 60px 20px;
+		border-radius: 10px;
+		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+		max-width: 800px; /* Define uma largura máxima */
+		margin: 0 auto; /* Centraliza o bloco */
+	}
+	
+
+	.sobre-nos h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+
+	.sobre-nos p {
+		text-align: center;
+		font-size: 1.1rem;
+		line-height: 1.8;
+	}
+
+	.sobre-nos .container {
+		max-width: 900px; /* Define uma largura máxima para não esticar demais */
+	}
+
+	/* Efeito de transição ao passar o mouse */
+	.sobre-nos:hover {
+		transform: scale(1.02);
+		transition: 0.3s ease-in-out;
+	}
+
+	.noticia_wrapper{
+		background-color: #FFF;
+		padding:15px;
+		margin-bottom:15px;
+		box-shadow: 1px 1px 2px #C3C3C3;
+		border-radius: 8px;
+		text-align: center;
+	}
+	.navbar{
+		background: #37B6FF;
+		color: white;
+	}
+	.noticia_autor{
+		color: #37B6FF;
+		display: block;
+	}
+	.noticia_titulo{
+		color:#000;
+		font-size:22px;
+		text-decoration: none;
+	}
+	.noticia_data{
+		color:#727272;
+		display: block;
+	}
+	.noticia_resumo{
+		color:#333;
+		margin-right:10px;
+	}
+	.ver_mais{
+		text-align: center;
+		background:#FFF;
+		padding:20px;
+		border-radius: 8px;
+	}
+	.input-sm {
+		width: 200px; 
+	}
+	.label-spacing {
+		width: 100px;
+		text-align: right;
+		margin-right: 10px;
+	}
+	.button-spacing {
+		width: 280px;
+		text-align: right;
+	}

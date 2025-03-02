@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Portal de notícias</title>
+		<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico" />
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<img src="images/logo-Principal-Branca.svg" />
+				</div>
+				<%-include('../partes/navbar')%>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+				</div>
+				<div class="col-md-4">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Clínicas Parceiras</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="noticia_wrapper">
+						<img src="https://via.placeholder.com/300" alt="Clínica Saúde Total" class="img-fluid">
+						<h4>Clínica Saúde Total</h4>
+						<p>Atendimento especializado em diversas áreas médicas, com profissionais altamente qualificados.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="noticia_wrapper">
+						<img src="https://via.placeholder.com/300" alt="Clínica Vida Plena" class="img-fluid">
+						<h4>Clínica Vida Plena</h4>
+						<p>Oferecendo suporte completo em saúde e bem-estar para toda a família.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="noticia_wrapper">
+						<img src="https://via.placeholder.com/300" alt="Centro Médico Bem-Estar" class="img-fluid">
+						<h4>Centro Médico Bem-Estar</h4>
+						<p>Especialistas em diversas áreas para garantir o melhor atendimento aos pacientes.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Sobre Nós -->
+			<div class="row ver_mais" style="margin-bottom: 5%;">
+				<h2 class="mb-4 text-primary fw-bold">Sobre Nós</h2>
+				<p class="lead">
+					Bem-vindo ao nosso sistema de agendamento digital! Desenvolvido como parte do curso Técnico em 
+					Sistemas para Internet no <strong>Instituto Federal do Espírito Santo</strong>, este projeto foi criado pelo aluno 
+					<strong>Alexandre Hackbardt Bolsoni</strong> na disciplina de <strong>Back-end 2</strong>.
+				</p>
+				<p>
+					Nosso objetivo é modernizar a rotina de clínicas que ainda utilizam <strong>agendas físicas</strong> para marcação 
+					de consultas, oferecendo uma <strong>solução digital eficiente, prática e acessível</strong>. Com nosso sistema, clínicas podem 
+					gerenciar agendamentos de forma organizada, reduzindo erros e otimizando o atendimento aos pacientes.
+				</p>
+			</div>
+			</div>
+			<div class="row ver_mais" style="margin-bottom: 10%;">
+				<button type="button" class="btn btn-default">
+					<a href="/todas_noticias">Pesquisar CPF</a>
+				</button>
+			</div>
+		</div>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	</body>
+</html>
