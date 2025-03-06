@@ -1,39 +1,32 @@
 <!DOCTYPE HTML>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-
-    <title>Portal de notícias</title>
-
-    <!-- JQuery -->
-    <script src="js/jquery-2.2.1.js"></script>
-
-    <!-- bootstrap - link cdn -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <!-- incluindo css -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
-</head>
-
-<body>
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img src="images/logo.png" />
-    
-    </nav>
+	<head>
+		<meta charset="UTF-8">
+		<title>Sync Clinic</title>
+		<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico" />
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<img src="images/logo-Principal-Branca.svg" />
+				</div>
+				<%-include('../partes/navbar')%>
+			</div>
+		</nav>
     <div class="container">
 
         <%if(validacao.length>0){%>
@@ -66,7 +59,7 @@
                                     placeholder="Senha">
                             </div>
                             <div class="button-spacing">
-                                <button type="submit" class="btn btn-danger">Entrar</button>
+                                <button type="submit" class="btn btn-danger" style="background-color: #007bff;">Entrar</button>
                             </div>
                         </form>
                     </div>

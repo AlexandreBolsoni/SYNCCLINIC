@@ -1,103 +1,183 @@
-	body{
-		background:#F8F8F8;
-	}
-	li{
-		list-style: none;
-		color: #F8F8F8;
-	}
-	a:hover{
-		text-decoration: none;
-		color:#000;
-	}
-	img{
-		width: 15%;
-		height: auto;
-	}
-	/* Estilização da seção "Sobre Nós" */
-	section {
-		margin: 0 auto;
-		text-align: center;
-		
-	}
-	.sobre-nos {
-		background: linear-gradient(to right, #007bff, #6610f2); /* Degradê azul para roxo */
-		color: white;
-		text-align: center;
-		padding: 60px 20px;
-		border-radius: 10px;
-		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-		max-width: 800px; /* Define uma largura máxima */
-		margin: 0 auto; /* Centraliza o bloco */
-	}
-	
+/* Reset de margens e paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-	.sobre-nos h2 {
-		text-align: center;
-		font-size: 2.5rem;
-		font-weight: bold;
-		margin-bottom: 20px;
-	}
+/* Estilos gerais */
+body {
+    background: #F8F8F8;
+    font-family: Arial, sans-serif; /* Fonte mais agradável */
+    margin: 0;
+    padding: 0;
+}
 
-	.sobre-nos p {
-		text-align: center;
-		font-size: 1.1rem;
-		line-height: 1.8;
-	}
+/* Listas e links */
+li {
+    list-style: none;
+    color: #333; /* Cor mais escura para texto */
+}
 
-	.sobre-nos .container {
-		max-width: 900px; /* Define uma largura máxima para não esticar demais */
-	}
+a {
+    text-decoration: none;
+    color: #007bff; /* Cor azul para links */
+    transition: color 0.3s ease; /* Transição suave ao passar o mouse */
+}
 
-	/* Efeito de transição ao passar o mouse */
-	.sobre-nos:hover {
-		transform: scale(1.02);
-		transition: 0.3s ease-in-out;
-	}
+a:hover {
+    color: #6610f2; /* Cor roxa ao passar o mouse */
+}
 
-	.noticia_wrapper{
-		background-color: #FFF;
-		padding:15px;
-		margin-bottom:15px;
-		box-shadow: 1px 1px 2px #C3C3C3;
-		border-radius: 8px;
-		text-align: center;
-	}
-	.navbar{
-		background: #37B6FF;
-		color: white;
-	}
-	.noticia_autor{
-		color: #37B6FF;
-		display: block;
-	}
-	.noticia_titulo{
-		color:#000;
-		font-size:22px;
-		text-decoration: none;
-	}
-	.noticia_data{
-		color:#727272;
-		display: block;
-	}
-	.noticia_resumo{
-		color:#333;
-		margin-right:10px;
-	}
-	.ver_mais{
-		text-align: center;
-		background:#FFF;
-		padding:20px;
-		border-radius: 8px;
-	}
-	.input-sm {
-		width: 200px; 
-	}
-	.label-spacing {
-		width: 100px;
-		text-align: right;
-		margin-right: 10px;
-	}
-	.button-spacing {
-		width: 280px;
-		text-align: right;
-	}
+/* Imagens */
+img {
+    width: 15%;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Efeito de transição para imagem */
+}
+
+img:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Estilização da seção "Sobre Nós" */
+section {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sobre-nos {
+    background: linear-gradient(to right, #007bff, #6610f2); /* Degradê azul para roxo */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Aumento da sombra */
+    max-width: 800px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza o bloco */
+}
+
+.sobre-nos h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sobre-nos p {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.sobre-nos .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.sobre-nos:hover {
+    transform: scale(1.05); /* Efeito de zoom mais suave */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Estilo para a notícia */
+.noticia_wrapper {
+    background-color: #FFF;
+    padding: 20px; /* Aumentei o padding para dar mais espaço */
+    margin-bottom: 20px; /* Aumentei o espaçamento entre os itens */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.noticia_wrapper:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+}
+
+.navbar {
+    background: #37B6FF;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombrinha suave para navbar */
+}
+
+.noticia_autor {
+    color: #37B6FF;
+    display: block;
+    font-size: 0.9rem; /* Tamanho de fonte reduzido para autores */
+}
+
+.noticia_titulo {
+    color: #000;
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.noticia_titulo:hover {
+    color: #007bff; /* Efeito de cor no título ao passar o mouse */
+}
+
+.noticia_data {
+    color: #727272;
+    display: block;
+    font-size: 0.9rem; /* Ajuste no tamanho da data */
+}
+
+.noticia_resumo {
+    color: #333;
+    margin-right: 10px;
+}
+
+.ver_mais {
+    text-align: center;
+    background: #FFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo para os campos de input */
+.input-sm {
+    width: 100%; /* Tornando o campo de input responsivo */
+    max-width: 200px; /* Tamanho máximo para inputs pequenos */
+}
+
+.label-spacing {
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.button-spacing {
+    width: 100%; /* Tornando o botão responsivo */
+    max-width: 280px;
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* Adicionando responsividade */
+@media (max-width: 768px) {
+    .navbar {
+        text-align: center;
+    }
+
+    .noticia_wrapper {
+        padding: 10px;
+    }
+
+    .sobre-nos {
+        padding: 40px 20px;
+    }
+
+    .input-sm {
+        width: 100%;
+    }
+
+    .label-spacing,
+    .button-spacing {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,18 +1,30 @@
 function PacientesDAO(connection) {
-	this._connection = connection;
+    this._connection = connection;
 }
 
 PacientesDAO.prototype.listarPaciente = function(callback) {
-    this._connection.query('select * from pacientes', callback);
+    this._connection.query('SELECT * FROM pacientes', callback);
 }
-PacientesDAO.prototype.listarCPF = function(cpf, callback) {
-    this._connection.query('select nome,sobrenome,data_agenfamento, hora_agendamento from pacientes where CPF = '+cpf_Paciente.cpf_Paciente, callback);
+
+PacientesDAO.prototype.pesquisarCPF = function(cpf, callback) {
+    // Correção na consulta para utilizar o parâmetro de forma segura
+    this._connection.query(
+        'SELECT nome, sobrenome, data_agendamento, hora_agendamento FROM pacientes WHERE CPF = ?', 
+        [cpf],  // Passando o parâmetro de forma segura para evitar SQL Injection
+        callback
+    );
 }
+
 PacientesDAO.prototype.listarDATA = function(data, callback) {
-    this._connection.query('select * from pacientes where DATA = ?', [data], callback);
+    this._connection.query(
+        'SELECT * FROM pacientes WHERE data_agendamento = ?', 
+        [data],  // Certifique-se de que o parâmetro esteja sendo passado corretamente
+        callback
+    );
 }
+
 PacientesDAO.prototype.agendarPaciente = function(paciente, callback) {
-    this._connection.query('insert into pacientes set ?', paciente, callback);
+    this._connection.query('INSERT INTO pacientes SET ?', paciente, callback);
 }
 
 module.exports = function() {

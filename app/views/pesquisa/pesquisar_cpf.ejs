@@ -28,30 +28,15 @@
 			</div>
 		</nav>
     <div class="container">
-        <h2>Pesquisar Agendamento por Data</h2>
-        <form id="pesquisaForm">
+        <h2>Pesquisar Consulta</h2>
+        <form id="searchForm">
             <div class="form-group">
-                <label for="data">Data:</label>
-                <input type="date" class="form-control" id="data" name="data" required>
+                <label for="cpf">Digite seu CPF:</label>
+                <input type="text" class="form-control" id="cpf" placeholder="Ex: 123.456.789-00" required>
             </div>
             <button type="submit" class="btn btn-primary">Pesquisar</button>
         </form>
-        <br>
-        <div id="resultado">
-            <h3>Resultados da Pesquisa</h3>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Hora</th>
-                        <th>Nome</th>
-                        <th>Sobrenome</th>
-                    </tr>
-                </thead>
-                <tbody id="tabelaResultados">
-                </tbody>
-            </table>
-        </div>
+        <div id="result" class="mt-4"></div>
     </div>
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
