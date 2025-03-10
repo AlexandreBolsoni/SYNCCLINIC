@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sync Clinic</title>
+  <!-- JQuery -->
+  <script src="js/jquery-2.2.1.js"></script>
+  <!-- bootstrap - link cdn -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- incluindo css -->
+  <link href="/css/style.css" rel="stylesheet">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+</head>
+
+<body>
+  <%-include('../partes/header')%>
+  <main class="container">
+	<h2>Cadastrar Consulta</h2>
+    <%if(validacoes && validacoes.length>0){%>
+		<div class="row">
+		<div class="col-md-12">
+				<div class="alert alert-danger">
+				<strong>Atenção!</strong>
+					<ul>
+						<%for(var i=0;i<validacoes.length;i++){%>
+							<li style="list-style: inside;"><%=validacoes[i].msg%></li>
+						<%}%>
+					</ul>
+				</div>
+			</div>
+		</div>
+	<%}%>
+
+    <div class="row">
+        <div class="col-md-12" style="margin-bottom: 20px;">
+				<form action="/salvar" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="paciente">Paciente:</label>
+						<select class="form-control" id="paciente" name="paciente">
+							<option disabled selected>Selecione o paciente ou cadastre um novo paciente</option>
+							<option id="novo" name="novo" value="novo" <%= paciente === 'novo' ? 'selected' : '' %>>Novo paciente</option>
+							<%if (pacientes && pacientes.length > 0) { %>
+								<% for (var i = 0; i < pacientes.length; i++) { %>
+									<option value="<%= pacientes[i].id %>" <%= paciente == pacientes[i].id ? 'selected' : '' %>>
+										<%= pacientes[i].nome + " " + pacientes[i].sobrenome %>
+									</option>
+								<%}%>
+							<%}%>
+						</select>						
+					</div>
+					<!-- Campos para novo paciente, exibidos apenas quando o valor do paciente for "Novo" -->
+					<div id="novoPaciente" style="display: none;">
+						<div class="form-group form-inline">
+						<label for="file">Foto do paciente:</label>
+						<input type="file" class="btn btn-default" id="file" name="file" placeholder="Foto do Paciente" accept="image/*">
+						<% if (consulta.foto) { %>
+							<p>Foto atual: <strong><%= consulta.foto %></strong></p>
+							<input type="hidden" name="existingImg" value="<%= consulta.foto %>">
+						<% } %>
+						</div>
+
+						<div class="form-group">
+						<label for="nome">Nome:</label>
+						<input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do paciente" oninput=validarTextoAlfanumericoInput(this) value="<%=consulta.nome || ''%>">
+						</div>
+
+						<div class="form-group">
+						<label for="sobrenome">Sobrenome:</label>
+						<input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite o sobrenome do paciente" oninput=validarTextoAlfanumericoInput(this) value="<%=consulta.sobrenome || ''%>">
+						</div>
+
+						<div class="form-group">
+						<label for="CPF">CPF:</label>
+						<input type="text" class="form-control" id="CPF" name="CPF" placeholder="XXX.XXX.XXX-XX"
+						minlength="14" maxlength="14" 
+						value="<%=consulta.CPF || ''%>">
+						</div>
+
+						<div class="form-group">
+						<label for="telefone">Telefone:</label>
+						<input type="text" class="form-control" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" minlength="15" maxlength="15" value="<%=consulta.telefone || ''%>">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="motivo">Motivo da consulta:</label>
+						<input type="text" class="form-control" id="motivo_consulta" name="motivo_consulta" placeholder="Digite o motivo da consulta do paciente" oninput=validarTextoAlfanumericoInput(this)  value="<%=consulta.motivo_consulta || ''%>">
+					</div>
+
+					<div class="form-group">
+						<label for="data_consulta">Data da consulta:</label>
+						<input type="date" class="form-control" id="data_consulta" name="data_consulta" value="<%=consulta.data_consulta || ''%>">
+					</div>
+
+					<div class="form-group" id="horariosWrapper" <%=consulta && consulta.hora_consulta ? '' : 'hidden' %>>
+						<label for="hora_consulta">Horário da consulta:</label>
+						<select class="form-control" id="hora_consulta" name="hora_consulta">
+							<option value="<%= consulta.hora_consulta || '' %>" <%= consulta && consulta.hora_consulta ? 'selected' : 'disabled' %>>
+								<%= consulta.hora_consulta || '' %>
+							</option>
+						</select>
+					</div>
+					
+					<div class="form-group" id="duracaoWrapper" <%= consulta && consulta.duracao_consulta ? '' : 'hidden' %>>
+						<label for="duracao_consulta">Duração prevista da consulta:</label>
+						<select class="form-control" id="duracao_consulta" name="duracao_consulta">
+							<option value="<%= consulta.duracao_consulta || '' %>" <%= consulta && consulta.duracao_consulta ? 'selected' : 'disabled' %>>
+								<%= consulta.duracao_consulta || '' %>
+							</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="medico_responsavel">Médico responsável:</label>
+						<input type="text" class="form-control" id="medico_responsavel" name="medico_responsavel" placeholder="Digite a titularização e nome do médico responsável. Ex.: Dr. João da Silva" oninput=validarTextoAlfanumericoInput(this)  value="<%=consulta.medico_responsavel || ''%>">
+					</div>
+
+					<div class="form-group">
+						<label for="especialidade_medico">Especialidade do médico:</label>
+						<input type="text" class="form-control" id="especialidade_medico" name="especialidade_medico" placeholder="Digite a especialidade do médico. Ex.: Cardiologista" oninput=validarTextoAlfanumericoInput(this) value="<%=consulta.especialidade_medico || ''%>">
+					</div>
+					<button type="submit" class="btn" style="background-color: #007bff; color: white;">Cadastrar</button>
+				</form>
+        	</div>
+        </div>
+  </main>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="/js/utils_consulta.js"></script>
+</body>
+
+</html>

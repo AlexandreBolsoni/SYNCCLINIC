@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sync Clinic</title>
+  <!-- JQuery -->
+  <script src="js/jquery-2.2.1.js"></script>
+  <!-- bootstrap - link cdn -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- incluindo css -->
+  <link href="/css/style.css" rel="stylesheet">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+</head>
+
+<body>
+    <%-include('../partes/header')%>
+    <main class="container">
+        <h2>Pesquisar Agendamento por Data</h2>
+        <form id="pesquisaForm">
+        <div class="form-group">
+            <label for="data">Data:</label>
+            <input type="date" class="form-control" id="data" name="data" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Pesquisar</button>
+        </form>
+        <br>
+        <div id="resultado">
+        <h3>Resultados da Pesquisa</h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+            </tr>
+            </thead>
+            <tbody id="tabelaResultados">
+            </tbody>
+        </table>
+        </div>
+    </main>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+
+</html>
