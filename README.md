@@ -3,7 +3,11 @@ Aqui está o **README.md** atualizado com os participantes e informações sobre
 ```markdown
 # SYNCCLINIC - Sistema de Agendamento Digital para Clínicas
 
-SYNCCLINIC é um sistema digital de agendamento desenvolvido para modernizar a rotina de clínicas que ainda utilizam agendas físicas. Criado como parte do trabalho da disciplina **Back-end II** no curso **Tecnologia em Sistemas para Internet (TSI)** no **Instituto Federal do Espírito Santo - IFES, Campus Santa Teresa**, pelos alunos **Alexandre Hackbardt Bolsoni**, **Pedro Loriatto**, e **Heitor**, o projeto visa oferecer uma solução eficiente e acessível para gerenciar consultas e otimizar o atendimento.
+SYNCCLINIC é um sistema digital de agendamento desenvolvido para modernizar a rotina de clínicas que ainda utilizam agendas físicas.
+ Criado como parte do trabalho da disciplina **Back-end II**
+no curso **Tecnologia em Sistemas para Internet (TSI)** no **Instituto Federal do Espírito Santo - IFES, Campus Santa Teresa**
+ pelos alunos **Alexandre Hackbardt Bolsoni**, **Pedro Loriatto**, e **Heitor**
+o projeto visa oferecer uma solução eficiente e acessível para gerenciar consultas e otimizar o atendimento.
 
 ## Índice
 
@@ -16,7 +20,10 @@ SYNCCLINIC é um sistema digital de agendamento desenvolvido para modernizar a r
 
 ## Descrição do Projeto
 
-O **SYNCCLINIC** é uma solução digital para clínicas que substitui a tradicional agenda física. O sistema permite o gerenciamento de agendamentos, com funcionalidades para marcar, editar e visualizar consultas de forma prática. A proposta é otimizar o processo e reduzir erros, proporcionando uma melhor experiência tanto para clínicas quanto para pacientes.
+O **SYNCCLINIC** é uma solução digital para clínicas que substitui a tradicional agenda física.
+ O sistema permite o gerenciamento de agendamentos, com funcionalidades para marcar,
+ editar e visualizar consultas de forma prática. A proposta é otimizar o processo e reduzir erros,
+ proporcionando uma melhor experiência tanto para clínicas quanto para pacientes.
 
 ## Tecnologias Utilizadas
 
