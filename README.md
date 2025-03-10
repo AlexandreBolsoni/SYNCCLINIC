@@ -1,9 +1,9 @@
-Entendido! Vou ajustar o **README.md** para refletir que o projeto utiliza **MySQL** ao invés de MongoDB. Aqui está a versão atualizada:
+Aqui está o **README.md** atualizado com os participantes e informações sobre o curso de **Back-end II**:
 
 ```markdown
 # SYNCCLINIC - Sistema de Agendamento Digital para Clínicas
 
-SYNCCLINIC é um sistema digital de agendamento desenvolvido para modernizar a rotina de clínicas que ainda utilizam agendas físicas. Criado no curso **Tecnologia em Sistemas para Internet (TSI)** no **Instituto Federal do Espírito Santo - IFES, Campus Santa Teresa**, pelos alunos **Alexandre Hackbardt Bolsoni**, **Pedro Loriatto**, e **Heitor**, o projeto visa oferecer uma solução eficiente e acessível para gerenciar consultas e otimizar o atendimento.
+SYNCCLINIC é um sistema digital de agendamento desenvolvido para modernizar a rotina de clínicas que ainda utilizam agendas físicas. Criado como parte do trabalho da disciplina **Back-end II** no curso **Tecnologia em Sistemas para Internet (TSI)** no **Instituto Federal do Espírito Santo - IFES, Campus Santa Teresa**, pelos alunos **Alexandre Hackbardt Bolsoni**, **Pedro Loriatto**, e **Heitor**, o projeto visa oferecer uma solução eficiente e acessível para gerenciar consultas e otimizar o atendimento.
 
 ## Índice
 
@@ -12,7 +12,7 @@ SYNCCLINIC é um sistema digital de agendamento desenvolvido para modernizar a r
 - [Como Rodar o Projeto](#como-rodar-o-projeto)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Contribuição](#contribuição)
-
+- [Licença](#licença)
 
 ## Descrição do Projeto
 
@@ -81,3 +81,10 @@ Contribuições são bem-vindas! Para contribuir:
 2. Crie uma branch (`git checkout -b minha-nova-feature`).
 3. Faça as modificações desejadas.
 4. Envie um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT.
+```
+
+Agora o **README.md** reflete a informação do curso e a equipe do projeto.
