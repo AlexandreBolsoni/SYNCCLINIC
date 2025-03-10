@@ -1,12 +1,12 @@
 module.exports = function (app) {
-    // Rota para formulário de agendamento
+    // Rota para formulário de consulta
     app.get('/admin', function (req, res) {
-        app.app.controllers.admin_control.form_add_agendamento(app, req, res);
+        app.app.controllers.admin_control.form_add_consulta(app, req, res);
     });
 
-    // Rota para salvar agendamento
-    app.post('/agenda/salvar', function (req, res) {
-        app.app.controllers.admin_control.agendamento_salvar(app, req, res);
+    // Rota para salvar consulta
+    app.post('/salvar', app.upload.single('file'), function (req, res) {
+        app.app.controllers.admin_control.consulta_salvar(app, req, res);
     });
 
     // Rota para login
@@ -19,13 +19,22 @@ module.exports = function (app) {
         app.app.controllers.admin_control.login_autenticar(app, req, res);
     });
 
-    // Rota para visualizar agenda
-    app.get('/visualizar_agenda', function (req, res) {
-        app.app.controllers.admin_control.visualizar_agenda(app, req, res);
+    // Rota para visualizar as consultas
+    app.get('/visualizar_consultas', function (req, res) {
+        app.app.controllers.admin_control.visualizar_consultas(app, req, res);
     });
 
-    // Rota para visualizar agendamento por CPF
-    app.post('/visualizar_agendamento', function (req, res) {
-        app.app.controllers.admin_control.visualizar_agendamento(app, req, res);
+    // Rota para visualizar consulta com mais detalhes
+    app.post('/visualizar_consulta', function (req, res) {
+        app.app.controllers.admin_control.visualizar_consulta(app, req, res);
+    });
+
+    app.get('/horariosDisponiveisConsulta', function (req, res) {
+        app.app.controllers.admin_control.horariosDisponiveisConsulta(app, req, res);
+    });
+
+    // Rota para sair da sessão de administrador
+    app.get('/sair', (req, res) => {
+        app.app.controllers.admin_control.sair(app, req, res);
     });
 };

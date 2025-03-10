@@ -1,7 +1,7 @@
 {
-  "name": "projeto-portal-news-v0.02",
+  "name": "sync-clinic",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +14,9 @@
     "consign": "^0.1.6",
     "ejs": "^3.1.10",
     "express": "^4.21.0",
+    "express-session": "^1.18.1",
     "express-validator": "^3.2.0",
+    "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "nodemon": "^3.1.7",
     "save-dev": "^0.0.1-security"

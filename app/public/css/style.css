@@ -6,38 +6,35 @@
 }
 
 /* Estilos gerais */
-body {
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Remove scroll horizontal */
     background: #F8F8F8;
-    font-family: Arial, sans-serif; /* Fonte mais agradável */
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 /* Listas e links */
 li {
     list-style: none;
-    color: #333; /* Cor mais escura para texto */
+    color: #333;
 }
 
 a {
     text-decoration: none;
-    color: #007bff; /* Cor azul para links */
-    transition: color 0.3s ease; /* Transição suave ao passar o mouse */
-}
-
-a:hover {
-    color: #6610f2; /* Cor roxa ao passar o mouse */
+    color: #007bff;
+    transition: color 0.3s ease;
 }
 
 /* Imagens */
 img {
     width: 15%;
     height: auto;
-    transition: transform 0.3s ease-in-out; /* Efeito de transição para imagem */
+    transition: transform 0.3s ease-in-out;
 }
 
 img:hover {
-    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.1);
 }
 
 /* Estilização da seção "Sobre Nós" */
@@ -47,14 +44,12 @@ section {
 }
 
 .sobre-nos {
-    background: linear-gradient(to right, #007bff, #6610f2); /* Degradê azul para roxo */
+    background: linear-gradient(to right, #007bff, #6610f2);
     color: white;
     text-align: center;
     padding: 60px 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Aumento da sombra */
-    max-width: 800px; /* Largura máxima */
-    margin: 0 auto; /* Centraliza o bloco */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .sobre-nos h2 {
@@ -70,59 +65,64 @@ section {
     line-height: 1.8;
 }
 
-.sobre-nos .container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
 .sobre-nos:hover {
-    transform: scale(1.05); /* Efeito de zoom mais suave */
+    transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
 
 /* Estilo para a notícia */
-.noticia_wrapper {
+.clinica_wrapper {
     background-color: #FFF;
-    padding: 20px; /* Aumentei o padding para dar mais espaço */
-    margin-bottom: 20px; /* Aumentei o espaçamento entre os itens */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s ease-in-out;
+    max-width: 100%; /* Garante que a notícia não ultrapasse a tela */
 }
 
-.noticia_wrapper:hover {
-    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+.clinica_wrapper:hover {
+    transform: translateY(-5px);
 }
 
-.navbar {
-    background: #37B6FF;
-    color: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombrinha suave para navbar */
+.header {
+    position: fixed;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav > li > a {
+    color: white; /* Cor padrão */
+}
+.navbar-nav > li > a:hover {
+    color: #00fff2 !important;
+}
+
+main {
+    margin-top: 100px;
 }
 
 .noticia_autor {
     color: #37B6FF;
     display: block;
-    font-size: 0.9rem; /* Tamanho de fonte reduzido para autores */
+    font-size: 0.9rem;
 }
 
 .noticia_titulo {
     color: #000;
     font-size: 22px;
-    text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .noticia_titulo:hover {
-    color: #007bff; /* Efeito de cor no título ao passar o mouse */
+    color: #007bff;
 }
 
 .noticia_data {
     color: #727272;
     display: block;
-    font-size: 0.9rem; /* Ajuste no tamanho da data */
+    font-size: 0.9rem;
 }
 
 .noticia_resumo {
@@ -135,13 +135,19 @@ section {
     background: #FFF;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.btn-ver_mais > a:hover {
+    color: #007bff;
+    text-decoration: none;
 }
 
 /* Estilo para os campos de input */
 .input-sm {
-    width: 100%; /* Tornando o campo de input responsivo */
-    max-width: 200px; /* Tamanho máximo para inputs pequenos */
+    width: 100%;
+    max-width: 200px;
 }
 
 .label-spacing {
@@ -151,19 +157,17 @@ section {
 }
 
 .button-spacing {
-    width: 100%; /* Tornando o botão responsivo */
+    width: 100%;
     max-width: 280px;
     text-align: right;
     margin-top: 10px;
 }
 
-/* Adicionando responsividade */
-@media (max-width: 768px) {
-    .navbar {
-        text-align: center;
-    }
 
-    .noticia_wrapper {
+/* Responsividade */
+@media (max-width: 768px) {
+
+    .clinica_wrapper {
         padding: 10px;
     }
 
@@ -179,5 +183,11 @@ section {
     .button-spacing {
         width: 100%;
         text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .header-container {
+        width: 95%;
     }
 }
