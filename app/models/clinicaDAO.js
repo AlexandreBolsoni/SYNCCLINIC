@@ -17,7 +17,7 @@ class clinicaDAO {
     verificarHoraConsulta(data, callback) {
         this._connection.query(
             'SELECT hora_consulta, duracao_consulta FROM consultas WHERE data_consulta = ?',
-            data.data,
+            data,
             callback
         );
     };    
@@ -44,8 +44,6 @@ class clinicaDAO {
     };
 
     getLogin(camposDeAdmin, callback) {
-        console.log(camposDeAdmin.admin);
-        console.log(camposDeAdmin.senha);
         this._connection.query('SELECT id FROM admin WHERE admin = "' +
             camposDeAdmin.admin + '" AND senha = "' + camposDeAdmin.senha + '";', callback);
     };

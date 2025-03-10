@@ -33,6 +33,10 @@ module.exports = function (app) {
         app.app.controllers.admin_control.horariosDisponiveisConsulta(app, req, res);
     });
 
+    app.get('/duracoesDisponiveisConsulta', function (req, res) {
+        app.app.controllers.admin_control.duracoesDisponiveisConsulta(app, req, res);
+    });
+
     // Rota para sair da sessão de administrador
     app.get('/sair', (req, res) => {
         app.app.controllers.admin_control.sair(app, req, res);

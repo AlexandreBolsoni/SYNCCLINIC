@@ -39,7 +39,6 @@ module.exports = {
         .assert("telefone", "Telefone deve estar no formato (XX) XXXXX-XXXX!")
         .matches(/^\([0-9]{2}\) [0-9]{5}-[0-9]{4}$/);
     }
-
     req
       .assert("paciente", "Selecione o paciente ou cadastre um novo paciente!")
       .notEmpty();
@@ -68,24 +67,7 @@ module.exports = {
     const erros = req.validationErrors() || [];
     if (!req.file && !consulta.foto && req.body.paciente === "novo") {
       erros.unshift({ msg: "Foto do paciente não pode ser vazia!" });
-    }
-
-    function converterParaMinutos(hora) {
-      const [horas, minutos] = hora.split(":").map(Number);
-      return horas * 60 + minutos;
-    }
-
-    if (req.body.data_consulta && req.body.hora_consulta && req.body.duracao_consulta) {
-      const horaConsulta = converterParaMinutos(req.body.hora_consulta); // Convertendo hora inicial
-      const duracaoConsulta = converterParaMinutos(req.body.duracao_consulta); // Convertendo duração
-      const limiteHorario = 18 * 60; // 18 horas em minutos (1080)
-
-      if (horaConsulta + duracaoConsulta > limiteHorario) {
-        erros.unshift({
-          msg: "A duração prevista da consulta não pode ultrapassar às 18 horas!",
-        });
-      }
-    }
+    };
 
     if (erros.length > 0) {
       const connection = app.config.dbConnection();
@@ -104,7 +86,7 @@ module.exports = {
         });
       });
       return;
-    }
+    };
 
     const connection = app.config.dbConnection();
     const clinicaDAO = new app.app.models.clinicaDAO(connection);
@@ -253,27 +235,46 @@ module.exports = {
     const clinicaDAO = new app.app.models.clinicaDAO(connection);
 
     const dataConsulta = req.query;
-    console.log("Data recebida no backend:", dataConsulta);
     if (!dataConsulta) {
         return res.status(400).json({ error: 'Data não informada!' });
     }
 
-    clinicaDAO.verificarHoraConsulta(dataConsulta, (error, resultados) => {
-        console.log(resultados);
+    clinicaDAO.verificarHoraConsulta(dataConsulta.data, (error, resultados) => {
         if (error) {
             return res.status(500).json({ error: 'Erro ao buscar horários' });
         }
-
         const horariosIndisponiveis = resultados.map(consulta => ({
             inicio: consulta.hora_consulta,
             duracao: consulta.duracao_consulta
         }));
 
-        const horariosDisponiveis = app.app.utils.horarios_consulta.gerarHorariosDisponiveis(horariosIndisponiveis);
-        console.log(horariosDisponiveis);
+        const horariosDisponiveis = app.app.utils.consulta.gerarHorariosDisponiveis(horariosIndisponiveis);
         res.json(horariosDisponiveis);
     });
   },
+
+  duracoesDisponiveisConsulta: function(app, req, res) {
+    const { data, hora } = req.query;
+    if (!data || !hora) {
+        return res.status(400).json({ erro: "Data e horário são obrigatórios" });
+    }
+
+    try {
+        const connection = req.app.config.dbConnection();
+        const clinicaDAO = new req.app.app.models.clinicaDAO(connection);
+
+        clinicaDAO.verificarHoraConsulta(data, (err, consultas) => {
+            if (err) {
+                return res.status(500).json({ erro: "Erro ao buscar consultas." });
+            }
+            const ocupados = consultas.map(c => ({ inicio: c.hora_consulta, duracao: c.duracao_consulta }));
+            const duracoesDisponiveis = app.app.utils.consulta.gerarDuracoesDisponiveis(ocupados, hora);
+            res.json(duracoesDisponiveis);
+        });
+    } catch (error) {
+        res.status(500).json({ erro: "Erro ao processar solicitação." });
+    }
+},
 
   sair: function (app, req, res) {
     req.session.destroy((error) => {

@@ -8,11 +8,11 @@
           <li><a style="color: white;" href="/">HOME</a></li>
           <li><a style="color: white;" href="/pesquisa_cpf">PESQUISAR CPF</a></li>
           <%if(flagAdmin){%>
-            <li><a style="color: white;" href="/admin">ADICIONAR CONSULTA</a></li>
+            <li><a style="color: white;" href="/admin">CADASTRAR CONSULTA</a></li>
             <li><a style="color: white;" href="/visualizar_consultas">CONSULTAS</a></li>
-            <li><a style="color: rgb(255, 0, 0); box-shadow: none;" href="/sair">SAIR</a></li>
+            <li><a style="color: rgb(220, 220, 220);" class="btn btn-sm btn-danger" href="/sair" role="button">SAIR</a></li>
         <%}else{%>
-            <li><a style="color: white;" href="/login">LOGIN</a></li>
+            <li><a style="color: rgb(220, 220, 220);" class="btn btn-primary " href="/login" role="button">LOGIN</a></li>
         <%}%>
         </ul>
       </nav>
