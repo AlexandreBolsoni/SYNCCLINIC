@@ -3,7 +3,7 @@
 SYNCCLINIC é um sistema digital de agendamento desenvolvido para modernizar a rotina de clínicas que ainda utilizam agendas físicas.
  Criado como parte do trabalho da disciplina **Back-end II**
 no curso **Tecnologia em Sistemas para Internet (TSI)** no **Instituto Federal do Espírito Santo - IFES, Campus Santa Teresa**
- pelos alunos **Alexandre Hackbardt Bolsoni**, **Pedro Loriatto**, e **Heitor**
+ pelos alunos **Alexandre Hackbardt Bolsoni**, **Pedro Henrique Loriato**, e **Heitor Matias Côgo**
 o projeto visa oferecer uma solução eficiente e acessível para gerenciar consultas e otimizar o atendimento.
 
 ## Índice
