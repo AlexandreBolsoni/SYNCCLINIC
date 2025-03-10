@@ -1,4 +1,4 @@
-Aqui está o **README.md** atualizado com os participantes e informações sobre o curso de **Back-end II**:
+
 
 ```markdown
 # SYNCCLINIC - Sistema de Agendamento Digital para Clínicas
@@ -16,7 +16,7 @@ o projeto visa oferecer uma solução eficiente e acessível para gerenciar cons
 - [Como Rodar o Projeto](#como-rodar-o-projeto)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Contribuição](#contribuição)
-- [Licença](#licença)
+
 
 ## Descrição do Projeto
 
@@ -89,9 +89,3 @@ Contribuições são bem-vindas! Para contribuir:
 3. Faça as modificações desejadas.
 4. Envie um pull request.
 
-## Licença
-
-Este projeto está licenciado sob a licença MIT.
-```
-
-Agora o **README.md** reflete a informação do curso e a equipe do projeto.
