@@ -11,11 +11,11 @@ o projeto visa oferecer uma solução eficiente e acessível para gerenciar cons
 
 ## Índice
 
-- [Descrição do Projeto](#descrição-do-projeto)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Como Rodar o Projeto](#como-rodar-o-projeto)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Contribuição](#contribuição)
+- [Descrição do Projeto]
+- [Tecnologias Utilizadas]
+- [Como Rodar o Projeto]
+- [Estrutura do Projeto]
+- [Contribuição]
 
 
 ## Descrição do Projeto
