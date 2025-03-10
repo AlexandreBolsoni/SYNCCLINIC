@@ -1,6 +1,3 @@
-
-
-```markdown
 # SYNCCLINIC - Sistema de Agendamento Digital para Clínicas
 
 SYNCCLINIC é um sistema digital de agendamento desenvolvido para modernizar a rotina de clínicas que ainda utilizam agendas físicas.
