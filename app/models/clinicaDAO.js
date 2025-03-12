@@ -6,14 +6,15 @@ class clinicaDAO {
     listarPacientes(callback) {
         this._connection.query('SELECT * FROM pacientes', callback);
     };
-
-        buscarPorCPF(cpf, callback) {
-            this._connection.query(
-                'SELECT foto, nome, sobrenome, CPF, telefone FROM pacientes JOIN consultas WHERE CPF = ?',
-                [cpf], callback
-            );
-            console.log("CPF Recebido:", cpf); // Adicione este log para verificar o valor do CPF
-
+    listarConsultas(callback) {
+        this._connection.query('SELECT foto, nome, sobrenome, CPF, telefone, c.* FROM pacientes JOIN consultas c ON pacientes.id = c.id_paciente_FK ', callback);        // this._connection.query('SELECT * FROM pacientes JOIN consultas', callback);
+    };
+    
+    buscarPorCPF(cpf, callback) {
+        this._connection.query(
+        'SELECT foto, nome, sobrenome, CPF, telefone, c.* FROM pacientes JOIN consultas c ON pacientes.id = c.id_paciente_FK WHERE CPF = ?',
+        [cpf], callback
+        );
         };
 
     verificarHoraConsulta(data, callback) {
@@ -39,10 +40,6 @@ class clinicaDAO {
     // Método para salvar uma nova consulta associada a um paciente
     salvarConsulta(consulta, callback) {
         this._connection.query('INSERT INTO consultas SET ?', consulta, callback);
-    };
-
-    agendarConsultaPaciente(paciente, callback) {
-        this._connection.query('INSERT INTO pacientes SET ?', paciente, callback);
     };
 
     getLogin(camposDeAdmin, callback) {

@@ -17,30 +17,40 @@
 <body>
     <%-include('../partes/header')%>
     <main class="container">
-        <h2>Pesquisar Agendamento por Data</h2>
-        <form id="pesquisaForm">
-        <div class="form-group">
-            <label for="data">Data:</label>
-            <input type="date" class="form-control" id="data" name="data" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Pesquisar</button>
-        </form>
-        <br>
-        <div id="resultado">
-        <h3>Resultados da Pesquisa</h3>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Data</th>
-                <th>Hora</th>
-                <th>Nome</th>
-                <th>Sobrenome</th>
-            </tr>
-            </thead>
-            <tbody id="tabelaResultados">
-            </tbody>
-        </table>
-        </div>
+        <div class="container">
+         <%if(consultas.length > 0){%>
+            <%consultas.forEach(consulta => {%>
+                <div class="row"> <a href="/consulta?id_consulta=<%=consulta.id%>" class="card-consulta"> <div class="panel panel-default consulta_wrapper"> <h2 class="consulta_paciente">Paciente: <%= consulta.nome %> <%= consulta.sobrenome %></h2>
+                    <div class="consulta_motivo_wrapper">  
+                      <span class="consulta_motivo"><strong>Motivo:</strong> <%= consulta.motivo_consulta %></span>  
+                    </div>  
+
+                    <span class="consulta_data d-flex" >  
+                      <span class="glyphicon glyphicon-calendar icon"></span>  
+                      <span class="text-icon"><%= consulta.data_consulta.toLocaleDateString("pt-BR") %></span>  
+                    </span>  
+
+                    <span class="consulta_hora d-flex">  
+                      <span class="glyphicon glyphicon-time icon"></span>  
+                      <span class="text-icon"><%= consulta.hora_consulta %></span>  
+                    </span>  
+
+                    <span class="consulta_duracao d-flex">  
+                      <span class="glyphicon glyphicon-hourglass icon"></span>  
+                      <span class="text-icon"><%= consulta.duracao_consulta %></span>  
+                    </span>  
+                    <a href="" class="btn btn-danger">Apagar</a>
+                  </div>  
+           
+                </a>  
+           
+              </div>
+              <%})%>
+         <%}%>
+         
+
+       
+  
     </main>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

@@ -119,8 +119,15 @@ section {
 
 main {
     padding-top: 100px;
+
 }
 
+.card_login{
+ width: 200px;
+    margin: 0 auto ;
+    text-align: center;
+
+}
 .main-inicio {
     height: 80%;
 }
@@ -138,6 +145,106 @@ main {
     color: #007bff;
     text-decoration: none;
 }
+/* Estilização dos cartões de consulta */
+.card_consulta {
+    width: 100%;
+    };
+    
+    .container {
+    padding: 0 !important;
+    }
+    
+    .consulta_wrapper {
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    border-left: 5px solid #337ab7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+    }
+    
+    .consulta_wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Nome do Paciente no canto superior esquerdo */
+    .consulta_paciente {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #337ab7;
+    }
+    
+    /* Motivo da consulta centralizado verticalmente à esquerda */
+    .consulta_motivo_wrapper {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    }
+    
+    .consulta_motivo {
+    text-decoration: none;
+    color: #337ab7;
+    }
+    
+    /* Data da consulta no topo direito */
+    .consulta_data {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 14px;
+    color: #555;
+    }
+    
+    /* Hora da consulta no bottom direito */
+    .consulta_hora {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 14px;
+    color: #555;
+    }
+    
+    /* Duração da consulta no bottom esquerdo */
+    .consulta_duracao {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    font-size: 14px;
+    color: #555;
+    }
+    
+    .icon {
+    font-size: 20px;
+    color: #337ab7;
+    }
+    
+    .d-flex {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    }
+    
+    .text-icon {
+    font-size: 16px;
+    font-weight: bold;
+    color: #005baa;
+    }
 
 /* Estilo para os campos de input */
 .input-sm {

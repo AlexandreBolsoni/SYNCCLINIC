@@ -30,13 +30,23 @@
   
       <% if (consulta && consulta.length > 0) { %>
           <h3>Consultas Agendadas</h3>
-          <ul class="list-group">
+          <ul class="list-group" style="text-align: center;">
               <% consulta.forEach(function(item) { %>
+                <%console.log(item)%>
                   <li class="list-group-item">
+                    <img src="/uploads/<%=item.foto%>" alt="Foto do Paciente" width="100"><br>
                       <strong>Nome:</strong> <%= item.nome %> <%= item.sobrenome %> <br>
-                      <strong>CPF:</strong> <%= item.CPF %> <br>
                       <strong>Telefone:</strong> <%= item.telefone %> <br>
-                      <img src="<%= item.foto %>" alt="Foto do Paciente" width="100">
+                      <strong>Motivo:</strong> <%= item.motivo_consulta %> <br>
+                      <strong>Data:</strong> <%= new Intl.DateTimeFormat('pt-BR', { 
+                        weekday: 'long', 
+                        day: '2-digit', 
+                        month: '2-digit', 
+                        year: 'numeric' 
+                    }).format(new Date(item.data_consulta)) %> <br>
+                    
+                      <strong>Hora:</strong> <%= item.hora_consulta %>
+                    
                   </li>
               <% }) %>
           </ul>
@@ -44,10 +54,6 @@
           <p class="text-danger"><%= erro %></p>
       <% } %>
   </main>
-  
-
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 
 </html>

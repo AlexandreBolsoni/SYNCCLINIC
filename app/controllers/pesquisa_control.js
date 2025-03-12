@@ -2,8 +2,8 @@ module.exports = {
     pesquisa_cpf: function (app, req, res) {
         res.render("pesquisa/pesquisar_cpf", { 
             flagAdmin: req.session.autorizado,
-            consulta: [],  // <- Agora o EJS sempre recebe `consulta`
-            erro: null      // <- Evita problemas com `erro` também
+            consulta: [], 
+            erro: null
         });
     },    
 
@@ -20,6 +20,7 @@ module.exports = {
                     flagAdmin: req.session.autorizado 
                 });
             }
+            console.log(result[0].foto);
             // Caso a consulta seja encontrada, renderiza a mesma página com os dados
             res.render("pesquisa/pesquisar_cpf", { 
                 consulta: result,  // Passando o resultado das consultas

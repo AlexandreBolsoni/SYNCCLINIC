@@ -188,19 +188,17 @@ module.exports = {
   },
 
   visualizar_consultas: function (app, req, res) {
-    if (req.session.autorizado) {
+    if (req.session.autorizado){
+
       const connection = app.config.dbConnection();
       const consultaDAO = new app.app.models.clinicaDAO(connection);
-      clinicaDAO.listar(function (error, result) {
-        if (error) {
-          return res.status(500).send("Erro ao buscar a consulta");
-        }
+      consultaDAO.listarConsultas(function (error, consultas) {
         res.render("admin/visualizar_consultas", {
-          consulta: result,
+          consultas: consultas,
           flagAdmin: req.session.autorizado,
         });
-      });
-    } else {
+      })
+    }else{
       const erros = [];
       erros.push({ msg: "Administrador precisa fazer login!" });
       res.render("admin/form_login", {

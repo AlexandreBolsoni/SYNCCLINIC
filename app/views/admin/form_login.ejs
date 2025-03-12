@@ -15,45 +15,43 @@
 </head>
 
 <body>
-    <%-include('../partes/header')%>
+    <%- include('../partes/header') %>
     <main class="container">
-      <h2>Login</h2>
-        <%if(validacoes.length>0){%>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="alert alert-danger">
-                        <strong>Atenção!</strong>
-                        <ul>
-                            <%for(var i=0;i<validacoes.length;i++){%>
-                                <li style="list-style: inside;"><%=validacoes[i].msg%></li>
-                            <%}%>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        <%}%>
+      <h2 class="text-center">Login</h2>
 
-        <div class="row">
-            <div class="col-md-12">
-                <form action="/login_autenticar" method="post">
-                  <div class="form-group form-inline">
-                    <label for="admin" class="label-spacing">Administrador:</label>
-                    <input type="text" class="form-control input-sm" id="admin" name="admin" placeholder="Admin">
-                  </div>
-                  <div class="form-group form-inline">
-                    <label for="senha" class="label-spacing">Senha:</label>
-                    <input type="password" class="form-control input-sm" id="senha" name="senha" placeholder="Senha">
-                  </div>
-                  <div class="button-spacing">
-                    <button type="submit" class="btn" style="background-color: #007bff; color: white;">Entrar</button>
-                  </div>
-                </form>
-            </div>
+      <% if (validacoes.length > 0) { %>
+        <div class="alert alert-danger">
+          <strong>Atenção!</strong>
+          <ul>
+            <% for (var i = 0; i < validacoes.length; i++) { %>
+              <li><%= validacoes[i].msg %></li>
+            <% } %>
+          </ul>
         </div>
+      <% } %>
+
+      <div class="card_login" style="text-align: center;">
+        <div class="login">
+          <form action="/login_autenticar" method="post">
+            <div class="form-group">
+              <label for="admin" class="">Administrador:</label>
+              <input type="text" class="form-control input-sm" id="admin" name="admin" placeholder="Admin" required>
+            </div>
+
+            <div class="form-group">
+              <label for="senha" class="">Senha:</label>
+              <input type="password" class="form-control input-sm" id="senha" name="senha" placeholder="Senha" required>
+            </div>
+
+            <div class="button-spacing">
+              <button type="submit" class="btn btn-primary button-spacing" style="text-align: center;">Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
-    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 
 </html>
