@@ -191,7 +191,7 @@ module.exports = {
     if (req.session.autorizado) {
       const connection = app.config.dbConnection();
       const consultaDAO = new app.app.models.clinicaDAO(connection);
-      consultaDAO.listar(function (error, result) {
+      clinicaDAO.listar(function (error, result) {
         if (error) {
           return res.status(500).send("Erro ao buscar a consulta");
         }
@@ -236,45 +236,45 @@ module.exports = {
 
     const dataConsulta = req.query;
     if (!dataConsulta) {
-        return res.status(400).json({ error: 'Data não informada!' });
+      return res.status(400).json({ error: 'Data não informada!' });
     }
 
     clinicaDAO.verificarHoraConsulta(dataConsulta.data, (error, resultados) => {
-        if (error) {
-            return res.status(500).json({ error: 'Erro ao buscar horários' });
-        }
-        const horariosIndisponiveis = resultados.map(consulta => ({
-            inicio: consulta.hora_consulta,
-            duracao: consulta.duracao_consulta
-        }));
+      if (error) {
+        return res.status(500).json({ error: 'Erro ao buscar horários' });
+      }
+      const horariosIndisponiveis = resultados.map(consulta => ({
+        inicio: consulta.hora_consulta,
+        duracao: consulta.duracao_consulta
+      }));
 
-        const horariosDisponiveis = app.app.utils.consulta.gerarHorariosDisponiveis(horariosIndisponiveis);
-        res.json(horariosDisponiveis);
+      const horariosDisponiveis = app.app.utils.consulta.gerarHorariosDisponiveis(horariosIndisponiveis);
+      res.json(horariosDisponiveis);
     });
   },
 
-  duracoesDisponiveisConsulta: function(app, req, res) {
+  duracoesDisponiveisConsulta: function (app, req, res) {
     const { data, hora } = req.query;
     if (!data || !hora) {
-        return res.status(400).json({ erro: "Data e horário são obrigatórios" });
+      return res.status(400).json({ erro: "Data e horário são obrigatórios" });
     }
 
     try {
-        const connection = req.app.config.dbConnection();
-        const clinicaDAO = new req.app.app.models.clinicaDAO(connection);
+      const connection = req.app.config.dbConnection();
+      const clinicaDAO = new req.app.app.models.clinicaDAO(connection);
 
-        clinicaDAO.verificarHoraConsulta(data, (err, consultas) => {
-            if (err) {
-                return res.status(500).json({ erro: "Erro ao buscar consultas." });
-            }
-            const ocupados = consultas.map(c => ({ inicio: c.hora_consulta, duracao: c.duracao_consulta }));
-            const duracoesDisponiveis = app.app.utils.consulta.gerarDuracoesDisponiveis(ocupados, hora);
-            res.json(duracoesDisponiveis);
-        });
+      clinicaDAO.verificarHoraConsulta(data, (err, consultas) => {
+        if (err) {
+          return res.status(500).json({ erro: "Erro ao buscar consultas." });
+        }
+        const ocupados = consultas.map(c => ({ inicio: c.hora_consulta, duracao: c.duracao_consulta }));
+        const duracoesDisponiveis = app.app.utils.consulta.gerarDuracoesDisponiveis(ocupados, hora);
+        res.json(duracoesDisponiveis);
+      });
     } catch (error) {
-        res.status(500).json({ erro: "Erro ao processar solicitação." });
+      res.status(500).json({ erro: "Erro ao processar solicitação." });
     }
-},
+  },
 
   sair: function (app, req, res) {
     req.session.destroy((error) => {

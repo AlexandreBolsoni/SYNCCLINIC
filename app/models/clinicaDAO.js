@@ -7,12 +7,14 @@ class clinicaDAO {
         this._connection.query('SELECT * FROM pacientes', callback);
     };
 
-    buscarPorCPF(cpf, callback) {
-        this._connection.query(
-            'SELECT foto, nome, sobrenome, CPF, telefone FROM pacientes WHERE CPF = ?',
-            [cpf], callback
-        );
-    };
+        buscarPorCPF(cpf, callback) {
+            this._connection.query(
+                'SELECT foto, nome, sobrenome, CPF, telefone FROM pacientes JOIN consultas WHERE CPF = ?',
+                [cpf], callback
+            );
+            console.log("CPF Recebido:", cpf); // Adicione este log para verificar o valor do CPF
+
+        };
 
     verificarHoraConsulta(data, callback) {
         this._connection.query(

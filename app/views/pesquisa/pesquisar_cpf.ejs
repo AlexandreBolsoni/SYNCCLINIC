@@ -16,17 +16,36 @@
 
 <body>
   <%-include('../partes/header')%>
-  	<main class="container">
-		<h2>Pesquisar Consultas</h2>
-		<form id="searchForm">
-		<div class="form-group">
-			<label for="cpf">Digite seu CPF:</label>
-			<input type="text" class="form-control" id="cpf" placeholder="Ex: 123.456.789-00" required>
-		</div>
-		<button type="submit" class="btn btn-primary">Pesquisar</button>
-		</form>
-		<div id="result" class="mt-4"></div>
-    </main>
+  
+
+  <main class="container">
+      <h2>Pesquisar Consultas</h2>
+      <form method="POST" action="/pesquisa_cpf">
+          <div class="form-group">
+              <label for="cpf">Digite seu CPF:</label>
+              <input type="text" class="form-control" id="cpf" name="CPF" placeholder="Ex: 123.456.789-00" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Pesquisar</button>
+      </form>
+  
+      <% if (consulta && consulta.length > 0) { %>
+          <h3>Consultas Agendadas</h3>
+          <ul class="list-group">
+              <% consulta.forEach(function(item) { %>
+                  <li class="list-group-item">
+                      <strong>Nome:</strong> <%= item.nome %> <%= item.sobrenome %> <br>
+                      <strong>CPF:</strong> <%= item.CPF %> <br>
+                      <strong>Telefone:</strong> <%= item.telefone %> <br>
+                      <img src="<%= item.foto %>" alt="Foto do Paciente" width="100">
+                  </li>
+              <% }) %>
+          </ul>
+      <% } else if (erro) { %>
+          <p class="text-danger"><%= erro %></p>
+      <% } %>
+  </main>
+  
+
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
