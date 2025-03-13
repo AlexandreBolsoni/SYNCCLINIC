@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function validarTextoAlfanumericoInput(elemento) {
   elemento.value = elemento.value.replace(/[^a-zA-ZÀ-ÿ\s.,;:!?-]/g, ""); // Remove números e caracteres indesejados
-}
+};
 
 document.getElementById("CPF").addEventListener("input", function () {
   this.value = this.value.replace(/\D/g, ""); // Remove caracteres não numéricos

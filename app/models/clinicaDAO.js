@@ -9,13 +9,20 @@ class clinicaDAO {
     listarConsultas(callback) {
         this._connection.query('SELECT foto, nome, sobrenome, CPF, telefone, c.* FROM pacientes JOIN consultas c ON pacientes.id = c.id_paciente_FK ', callback);        // this._connection.query('SELECT * FROM pacientes JOIN consultas', callback);
     };
-    
-    buscarPorCPF(cpf, callback) {
+
+    buscarConsultasPorCPF(cpf, callback) {
         this._connection.query(
-        'SELECT foto, nome, sobrenome, CPF, telefone, c.* FROM pacientes JOIN consultas c ON pacientes.id = c.id_paciente_FK WHERE CPF = ?',
-        [cpf], callback
+            'SELECT foto, nome, sobrenome, CPF, telefone, c.* FROM pacientes JOIN consultas c ON pacientes.id = c.id_paciente_FK WHERE CPF = ?',
+            [cpf], callback
         );
-        };
+    };
+
+    visualizar_consulta(id, callback) {
+        this._connection.query(
+            'SELECT * FROM consultas c JOIN pacientes p ON c.id_paciente_FK = p.id WHERE c.id = ?',
+            [id], callback
+        );
+    };
 
     verificarHoraConsulta(data, callback) {
         this._connection.query(

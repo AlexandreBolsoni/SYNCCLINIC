@@ -16,44 +16,63 @@
 
 <body>
   <%-include('../partes/header')%>
-  
+
 
   <main class="container">
-      <h2>Pesquisar Consultas</h2>
-      <form method="POST" action="/pesquisa_cpf">
-          <div class="form-group">
-              <label for="cpf">Digite seu CPF:</label>
-              <input type="text" class="form-control" id="cpf" name="CPF" placeholder="Ex: 123.456.789-00" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Pesquisar</button>
-      </form>
-  
-      <% if (consulta && consulta.length > 0) { %>
-          <h3>Consultas Agendadas</h3>
-          <ul class="list-group" style="text-align: center;">
-              <% consulta.forEach(function(item) { %>
-                <%console.log(item)%>
-                  <li class="list-group-item">
-                    <img src="/uploads/<%=item.foto%>" alt="Foto do Paciente" width="100"><br>
-                      <strong>Nome:</strong> <%= item.nome %> <%= item.sobrenome %> <br>
-                      <strong>Telefone:</strong> <%= item.telefone %> <br>
-                      <strong>Motivo:</strong> <%= item.motivo_consulta %> <br>
-                      <strong>Data:</strong> <%= new Intl.DateTimeFormat('pt-BR', { 
-                        weekday: 'long', 
-                        day: '2-digit', 
-                        month: '2-digit', 
-                        year: 'numeric' 
-                    }).format(new Date(item.data_consulta)) %> <br>
-                    
-                      <strong>Hora:</strong> <%= item.hora_consulta %>
-                    
-                  </li>
-              <% }) %>
-          </ul>
-      <% } else if (erro) { %>
-          <p class="text-danger"><%= erro %></p>
-      <% } %>
+    <h2>Pesquisar Consultas por CPF</h2>
+    <form method="POST" action="/pesquisa_cpf">
+      <div class="form-group">
+        <label for="CPF">Digite seu CPF:</label>
+        <input type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex: 123.456.789-00" minlength="14" maxlength="14" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Pesquisar</button>
+    </form>
+
+    <% if (consultas && consultas.length > 0) { %>
+        <h3>Consultas Agendadas</h3>
+        <%consultas.forEach(consulta => {%>
+        <div class="row card-container">
+        <a href="/consulta?id=<%=consulta.id%>" class="card-consulta">
+            <div class="panel panel-default consulta_wrapper">
+            <h2 class="consulta_paciente">Paciente: <%= consulta.nome %> <%= consulta.sobrenome %></h2>
+
+            <div class="consulta_motivo_wrapper">
+                <span class="consulta_motivo"><strong>Motivo:</strong> <%= consulta.motivo_consulta %></span>
+            </div>
+
+            <div class="consulta_data d-flex" title="Data marcada da consulta">
+                <span class="glyphicon glyphicon-calendar icon"></span>
+                <span class="text-icon"><%= consulta.data_consulta.toLocaleDateString("pt-BR") %></span>
+            </div>
+
+            <div class="consulta_hora d-flex" title="Hora marcada da consulta">
+                <span class="glyphicon glyphicon-time icon"></span>
+                <span class="text-icon"><%=consulta.hora_consulta%>h</span>
+            </div>
+
+            <div class="consulta_duracao d-flex" title="Duração prevista da consulta">
+                <span class="glyphicon glyphicon-hourglass icon"></span>
+                <span class="text-icon"><%= consulta.duracao_consulta %> minutos</span>
+            </div>
+            </div>
+        </a>
+        </div>
+    <%})%>
+    <% } else if (erro) { %>
+        <p class="text-danger"><%= erro %></p>
+    <% } %>
   </main>
+  <script>
+    document.getElementById("CPF").addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+            this.value = this.value.replace(
+                /^(\d{3})(\d{3})(\d{3})(\d{2})$/,
+                "$1.$2.$3-$4"
+            );
+        this.setSelectionRange(this.value.length, this.value.length);
+    });
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 
 </html>

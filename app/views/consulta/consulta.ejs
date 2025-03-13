@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sync Clinic</title>
+  <!-- JQuery -->
+  <script src="js/jquery-2.2.1.js"></script>
+  <!-- bootstrap - link cdn -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- incluindo css -->
+  <link href="/css/style.css" rel="stylesheet">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+</head>
+
+<body>
+  <%-include('../partes/header')%>
+
+  <main class="container main-consulta">
+    <% if (consulta.length > 0) { %>
+    <div class="row card-container">
+      <div class="panel panel-default consulta_detalhes">
+        <div class="panel-body">
+          <img src="/uploads/<%= consulta[0].foto %>" alt="Foto do paciente" class="img-circle" style="width: 150px; aspect-ratio: 3/4; object-fit: cover; object-position: center; border-radius: 5%;">
+          <h2><%= consulta[0].nome %> <%= consulta[0].sobrenome %></h2>
+
+          <fieldset>
+            <legend>Informações do Paciente</legend>
+            <div class="info">
+              <span class="label-info">CPF</span>
+              <span class="text-info"><%= consulta[0].CPF %></span>
+            </div>
+            <div class="info">
+              <span class="label-info">Telefone</span>
+              <span class="text-info"><%= consulta[0].telefone %></span>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Informações da Consulta</legend>
+            <div class="info">
+              <span class="label-info">Motivo</span>
+              <span class="text-info"><%= consulta[0].motivo_consulta %></span>
+            </div>
+            <div class="info">
+              <span class="label-info">Data Marcada</span>
+              <span class="text-info"><%= consulta[0].data_consulta.toLocaleDateString("pt-BR") %></span>
+            </div>
+            <div class="info">
+              <span class="label-info">Horário Marcado</span>
+              <span class="text-info"><%= consulta[0].hora_consulta %>h</span>
+            </div>
+            <div class="info">
+              <span class="label-info">Duração Prevista</span>
+              <span class="text-info"><%= consulta[0].duracao_consulta %> minutos</span>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Informações do Médico Responsável</legend>
+            <div class="info">
+              <span class="label-info">Nome</span>
+              <span class="text-info"><%= consulta[0].medico_responsavel %></span>
+            </div>
+            <div class="info">
+              <span class="label-info">Especialidade</span>
+              <span class="text-info"><%= consulta[0].especialidade_medico %></span>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <% } else { %>
+    <div class="row card-container">
+      <div class="panel panel-default consulta_detalhes center-block">
+        <h2 class="consulta_paciente">Nenhuma consulta encontrada</h2>
+      </div>
+    </div>
+    <% } %>
+  </main>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -24,11 +24,6 @@ module.exports = function (app) {
         app.app.controllers.admin_control.visualizar_consultas(app, req, res);
     });
 
-    // Rota para visualizar consulta com mais detalhes
-    app.post('/visualizar_consulta', function (req, res) {
-        app.app.controllers.admin_control.visualizar_consulta(app, req, res);
-    });
-
     app.get('/horariosDisponiveisConsulta', function (req, res) {
         app.app.controllers.admin_control.horariosDisponiveisConsulta(app, req, res);
     });

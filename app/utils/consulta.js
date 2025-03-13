@@ -11,6 +11,19 @@ const somarMinutos = (hora, minutos) => {
   return novaData.toTimeString().substring(0, 5);
 };
 
+// Função para converter o formato "00:00:00" para "00:00"
+const converterParaHorario = (time) => {
+  if (!time || typeof time !== 'string') {
+    throw new Error('O parâmetro time deve ser uma string no formato HH:mm:ss');
+  }
+
+  // Divide a string time em horas, minutos e segundos
+  const [hours, minutes] = time.split(":");
+
+  // Retorna apenas as horas e minutos, descartando os segundos
+  return `${hours}:${minutes}`;
+};
+
 // Função para gerar horários disponíveis
 const gerarHorariosDisponiveis = (ocupados) => {
   const horariosPermitidos = [];
@@ -65,6 +78,7 @@ const gerarDuracoesDisponiveis = (ocupados, horarioSelecionado) => {
 module.exports = {
   converterParaMinutos,
   somarMinutos,
+  converterParaHorario,
   gerarHorariosDisponiveis,
   gerarDuracoesDisponiveis,
 };
