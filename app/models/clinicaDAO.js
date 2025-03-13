@@ -46,6 +46,10 @@ class clinicaDAO {
         this._connection.query('SELECT id FROM admin WHERE admin = "' +
             camposDeAdmin.admin + '" AND senha = "' + camposDeAdmin.senha + '";', callback);
     };
+
+    apagaConsulta(id_consulta, callback){
+        this._connection.query('DELETE FROM CONSULTAS WHERE id ='+ id_consulta.id_consulta, callback);
+    };
 };
 
 module.exports = function () {

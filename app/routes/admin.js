@@ -41,4 +41,8 @@ module.exports = function (app) {
     app.get('/sair', (req, res) => {
         app.app.controllers.admin_control.sair(app, req, res);
     });
+
+    app.get('/apagar_consulta', (req, res) => {
+        app.app.controllers.admin_control.delete_consulta(app, req, res);
+    });
 };

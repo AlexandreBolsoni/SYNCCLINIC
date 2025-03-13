@@ -39,11 +39,11 @@
                       <span class="glyphicon glyphicon-hourglass icon"></span>  
                       <span class="text-icon"><%= consulta.duracao_consulta %></span>  
                     </span>  
-                    <a href="" class="btn btn-danger">Apagar</a>
                   </div>  
-           
-                </a>  
-           
+           </a>  
+           <%if(flagAdmin == true){%>
+            <a href="apagar_consulta?id_consulta=<%=consulta.id%>" class="btn btn-md btn-danger"  style="margin-top: 4px; margin-bottom: 20px;">Finalizar Consulta</a>
+            <%}%>
               </div>
               <%})%>
          <%}%>

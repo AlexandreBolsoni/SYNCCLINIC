@@ -279,4 +279,13 @@ module.exports = {
       res.redirect("/");
     });
   },
+
+    delete_consulta : function(app,req,res){
+    var connection = app.config.dbConnection();
+    var consultaModel = new app.app.models.clinicaDAO(connection);
+    var id_consulta = req.query;
+    consultaModel.apagaConsulta(id_consulta,function(error,result){
+      res.redirect("/visualizar_consultas");
+    });
+  }
 };
