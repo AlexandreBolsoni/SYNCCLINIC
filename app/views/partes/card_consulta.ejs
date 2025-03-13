@@ -1,0 +1,32 @@
+<%consultas.forEach(consulta => {%>
+    <div class="row card-container">
+        <a href="/consulta?id=<%=consulta.id%>" class="card-consulta">
+            <div class="panel panel-default consulta_wrapper">
+            <h2 class="consulta_paciente">Paciente: <%= consulta.nome %> <%= consulta.sobrenome %></h2>
+
+            <div class="consulta_motivo_wrapper">
+                <span class="consulta_motivo"><strong>Motivo:</strong> <%= consulta.motivo_consulta %></span>
+            </div>
+
+            <div class="consulta_data d-flex" title="Data marcada da consulta">
+                <span class="glyphicon glyphicon-calendar icon"></span>
+                <span class="text-icon"><%= consulta.data_consulta.toLocaleDateString("pt-BR") %></span>
+            </div>
+
+            <div class="consulta_hora d-flex" title="Hora marcada da consulta">
+                <span class="glyphicon glyphicon-time icon"></span>
+                <span class="text-icon"><%=consulta.hora_consulta%>h</span>
+            </div>
+
+            <div class="consulta_duracao d-flex" title="Duração prevista da consulta">
+                <span class="glyphicon glyphicon-hourglass icon"></span>
+                <span class="text-icon"><%= consulta.duracao_consulta %> minutos</span>
+            </div>
+            </div>
+        </a>
+        <%if(flagAdmin){%>
+          <a href="apagar_consulta?id_consulta=<%=consulta.id%>" class="btn btn-md btn-danger"  style="margin-top: 4px; margin-bottom: 20px;">Finalizar Consulta</a>
+          <%}%>
+      </div>
+    </div>
+<%})%>

@@ -71,13 +71,11 @@
         </div>
       </div>
     </div>
-    <% } else { %>
-    <div class="row card-container">
-      <div class="panel panel-default consulta_detalhes center-block">
-        <h2 class="consulta_paciente">Nenhuma consulta encontrada</h2>
+    <% } else if (erro) { %>
+      <div class="row card-container">
+          <h2 class="text-danger" style="text-align: center;"><%= erro %></h2>
       </div>
-    </div>
-    <% } %>
+      <% } %>
   </main>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>

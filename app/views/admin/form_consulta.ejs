@@ -91,8 +91,11 @@
 
 					<div class="form-group">
 						<label for="data_consulta">Data da consulta:</label>
-						<input type="date" class="form-control" id="data_consulta" name="data_consulta" value="<%=consulta.data_consulta || ''%>">
-					</div>
+						<input type="date" class="form-control" id="data_consulta" name="data_consulta" 
+							min="<%= new Date().toLocaleString('en-CA', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).split('T')[0] %>" 
+							max="2100-12-31"
+							value="<%= consulta.data_consulta || '' %>">
+					</div>									
 
 					<div class="form-group" id="horariosWrapper" <%=consulta && consulta.hora_consulta ? '' : 'hidden' %>>
 						<label for="hora_consulta">Horário da consulta:</label>

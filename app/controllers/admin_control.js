@@ -189,10 +189,17 @@ module.exports = {
 
   visualizar_consultas: function (app, req, res) {
     if (req.session.autorizado){
-
       const connection = app.config.dbConnection();
       const consultaDAO = new app.app.models.clinicaDAO(connection);
       consultaDAO.listarConsultas(function (error, consultas) {
+        if (error || consultas.length === 0) {
+          return res.render("admin/visualizar_consultas", { 
+              erro: "Não existem consultas cadastradas!", 
+              consultas: [],
+              flagAdmin: req.session.autorizado 
+          });
+        };
+
         res.render("admin/visualizar_consultas", {
           consultas: consultas,
           flagAdmin: req.session.autorizado,

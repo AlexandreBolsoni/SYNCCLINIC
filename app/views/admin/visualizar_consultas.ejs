@@ -18,39 +18,14 @@
     <%-include('../partes/header')%>
     <main class="container">
         <div class="container">
-         <%if(consultas.length > 0){%>
-            <%consultas.forEach(consulta => {%>
-                <div class="row"> <a href="/consulta?id_consulta=<%=consulta.id%>" class="card-consulta"> <div class="panel panel-default consulta_wrapper"> <h2 class="consulta_paciente">Paciente: <%= consulta.nome %> <%= consulta.sobrenome %></h2>
-                    <div class="consulta_motivo_wrapper">  
-                      <span class="consulta_motivo"><strong>Motivo:</strong> <%= consulta.motivo_consulta %></span>  
-                    </div>  
-
-                    <span class="consulta_data d-flex" >  
-                      <span class="glyphicon glyphicon-calendar icon"></span>  
-                      <span class="text-icon"><%= consulta.data_consulta.toLocaleDateString("pt-BR") %></span>  
-                    </span>  
-
-                    <span class="consulta_hora d-flex">  
-                      <span class="glyphicon glyphicon-time icon"></span>  
-                      <span class="text-icon"><%= consulta.hora_consulta %></span>  
-                    </span>  
-
-                    <span class="consulta_duracao d-flex">  
-                      <span class="glyphicon glyphicon-hourglass icon"></span>  
-                      <span class="text-icon"><%= consulta.duracao_consulta %></span>  
-                    </span>  
-                  </div>  
-           </a>  
-           <%if(flagAdmin == true){%>
-            <a href="apagar_consulta?id_consulta=<%=consulta.id%>" class="btn btn-md btn-danger"  style="margin-top: 4px; margin-bottom: 20px;">Finalizar Consulta</a>
-            <%}%>
-              </div>
-              <%})%>
-         <%}%>
-         
-
-       
-  
+          <h2>Todas as consultadas agendadas</h2>
+          <%if(consultas.length > 0){%>
+            <%-include('../partes/card_consulta')%>
+          <%} else if(erro) { %>
+            <div class="row card-container">
+                <h2 class="text-danger" style="text-align: center;"><%= erro %></h2>
+            </div>
+          <%}%>
     </main>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

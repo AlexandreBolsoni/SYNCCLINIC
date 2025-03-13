@@ -16,10 +16,10 @@ module.exports = {
             if (error || result.length === 0) {
                 return res.render("pesquisa/pesquisar_cpf", { 
                     erro: "Nenhuma consulta encontrada para este CPF", 
-                    consultas: [],  // Passando consulta como array vazio
+                    consultas: [], 
                     flagAdmin: req.session.autorizado 
                 });
-            }
+            };
             
             result.forEach(consulta => {
                 consulta.hora_consulta = app.app.utils.consulta.converterParaHorario(consulta.hora_consulta);
