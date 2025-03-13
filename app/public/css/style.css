@@ -6,13 +6,17 @@
 }
 
 /* Estilos gerais */
-html, body {
+html,
+body {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 100%;
     max-width: 100%;
     height: 100vh;
     max-height: 100%;
-    overflow-x: hidden; /* Remove scroll horizontal */
+    overflow-x: hidden;
+    /* Remove scroll horizontal */
     background: #F8F8F8;
     font-family: Arial, sans-serif;
 }
@@ -73,7 +77,7 @@ section {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Estilo para a notícia */
+/* Estilo para a consulta */
 .clinica_wrapper {
     background-color: #FFF;
     padding: 20px;
@@ -82,7 +86,8 @@ section {
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s ease-in-out;
-    max-width: 100%; /* Garante que a notícia não ultrapasse a tela */
+    max-width: 100%;
+    /* Garante que a notícia não ultrapasse a tela */
 }
 
 .clinica_wrapper:hover {
@@ -90,18 +95,19 @@ section {
 }
 
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
     z-index: 2;
     width: 100%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-nav > li > a:not(.btn-danger):not(.btn-primary) {
-    color: white; /* Cor padrão */
+.navbar-nav>li>a:not(.btn-danger):not(.btn-primary) {
+    color: white;
+    /* Cor padrão */
 }
-.navbar-nav > li > a:hover:not(.btn-danger):not(.btn-primary) {
+
+.navbar-nav>li>a:hover:not(.btn-danger):not(.btn-primary) {
     color: #00fff2 !important;
 }
 
@@ -117,14 +123,6 @@ section {
     border-color: #204d74 !important;
 }
 
-main {
-    padding-top: 100px;
-}
-
-.main-inicio {
-    height: 80%;
-}
-
 .ver_mais {
     text-align: center;
     background: #FFF;
@@ -134,7 +132,7 @@ main {
     margin: 0 auto;
 }
 
-.btn-ver_mais > a:hover {
+.btn-ver_mais>a:hover {
     color: #007bff;
     text-decoration: none;
 }
@@ -158,6 +156,185 @@ main {
     margin-top: 10px;
 }
 
+/* Estilização dos cartões de consulta */
+.card-container {
+    margin: 0;
+}
+
+.card-container:first-of-type {
+    margin-top: 20px;
+}
+
+.card_consulta {
+    width: 100%;
+}
+
+.container {
+    padding: 0 !important;
+}
+
+.consulta_wrapper {
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    border-left: 5px solid #337ab7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+}
+
+.consulta_wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Nome do Paciente no canto superior esquerdo */
+.consulta_paciente {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #337ab7;
+}
+
+/* Motivo da consulta centralizado verticalmente à esquerda */
+.consulta_motivo_wrapper {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.consulta_motivo {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+/* Data da consulta no topo direito */
+.consulta_data {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Hora da consulta no bottom direito */
+.consulta_hora {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Duração da consulta no bottom esquerdo */
+.consulta_duracao {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.icon {
+    font-size: 20px;
+    color: #337ab7;
+}
+
+.d-flex {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-icon {
+    font-size: 16px;
+    font-weight: bold;
+    color: #005baa;
+}
+
+.main-consulta {
+    flex: 1;
+}
+
+.card-container {
+    flex: 1;
+    max-width: 800px;
+    margin-top: 20px;
+    margin: 0 auto;
+}
+
+.consulta_detalhes {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: left;
+}
+
+.consulta_detalhes h2 {
+    color: #0056b3;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+fieldset {
+    border: 1px solid #0056b3;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+legend {
+    width: auto;
+    padding: 0 5px;
+    border: 0;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+    font-size: 16px;
+}
+
+.label-info {
+    font-weight: bold;
+    color: #0056b3;
+    padding-left: 10px;
+    background-color: transparent;
+}
+
+.text-info {
+    font-weight: 500;
+    padding-right: 10px;
+    color: #0056b3;
+}
+
+.info:last-child {
+    border-bottom: none;
+}
+
+.img-circle {
+    display: block;
+    margin: 0 auto;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -178,6 +355,11 @@ main {
     .button-spacing {
         width: 100%;
         text-align: center;
+    }
+
+    .consulta_wrapper {
+        height: auto;
+        padding: 15px;
     }
 }
 
