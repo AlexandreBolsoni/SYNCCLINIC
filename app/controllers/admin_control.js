@@ -200,6 +200,11 @@ module.exports = {
           });
         };
 
+        consultas.forEach(consulta => {
+          consulta.hora_consulta = app.app.utils.consulta.converterParaHorario(consulta.hora_consulta);
+          consulta.duracao_consulta = app.app.utils.consulta.converterParaMinutos(consulta.duracao_consulta);
+        });
+
         res.render("admin/visualizar_consultas", {
           consultas: consultas,
           flagAdmin: req.session.autorizado,

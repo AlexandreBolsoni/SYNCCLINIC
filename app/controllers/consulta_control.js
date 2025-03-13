@@ -20,6 +20,7 @@ module.exports.visualizar_consulta = (app, req, res) => {
         consulta.duracao_consulta
       );
     });
+    
     res.render("consulta/consulta", {
       consulta: result,
       flagAdmin: req.session.autorizado,
