@@ -25,8 +25,19 @@
             </div>
         </a>
         <%if(flagAdmin){%>
-          <a href="apagar_consulta?id_consulta=<%=consulta.id%>" class="btn btn-md btn-danger"  style="margin-top: 4px; margin-bottom: 20px;">Finalizar Consulta</a>
-          <%}%>
+            <a href="javascript:void(0);" class="btn btn-md btn-danger" 
+            style="margin-top: 4px; margin-bottom: 20px;" onclick="confirmarAcao('<%=consulta.id%>')">
+            Finalizar Consulta
+            </a>
+            <script>
+              function confirmarAcao(idConsulta) {
+                var confirmacao = confirm("Você tem certeza que deseja finalizar essa consulta? Esta ação irá deletá-la do banco de dados e não possui volta.");
+                if (confirmacao) {
+                  window.location.href = "/apagar_consulta?id_consulta=" + idConsulta;
+                }
+              }
+            </script>
+        <%}%>
       </div>
     </div>
 <%})%>
